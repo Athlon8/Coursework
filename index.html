@@ -25,7 +25,14 @@
             <div class='left' style="padding: 2%;">
                 <input v-model="search" placeholder="Search">
                 <p><strong>Sort By:</strong></p>
-                
+                <p><input type="radio" id="title" value="Title" v-model="sort">
+                    <label for="title">Title</label></p>
+                <p><input type="radio" id="location" value="Location" v-model="sort">
+                    <label for="location">Location</label></p>
+                <p><input type="radio" id="price" value="Price" v-model="sort">
+                    <label for="price">Price</label></p>
+                <p><input type="radio" id="availability" value="Availability" v-model="sort">
+                    <label for="availability">Availability</label></p>
             </div>
             <div class='right'>
                 <main>
@@ -90,7 +97,8 @@
             products: products, 
             showProduct: true,
             cart: [],
-            search: ''
+            search: '',
+            sort: ''
         },
         methods: {
                 addToCart: function(product){
