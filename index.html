@@ -17,9 +17,10 @@
                 <!-- {{cartItemCount}} -->
                 {{cartItemCount}}
                 <span class="fas fa-cart-plus"></span>
-                <span>Checkout</span>
             </button>
-            <button v-else>Checkout</button>
+            <button v-else>
+                <span class="fas fa-cart-plus"></span>
+            </button>
         </div>
         <div class='content'>
             <div class='left' style="padding: 2%;">
@@ -43,7 +44,7 @@
                             </figure>
                             <h2 v-text="product.title"></h2>
                             <p v-html="product.description"></p>
-                            <p>Location: {{product.location}}</p>
+                            <p>Location: {{product.Location}}</p>
                             <p>Price: {{product.price}} </p>
                             <p>Available Inventory {{product.availableInventory - cartCount(product.id)}}</p>
                             <button v-on:click = "addToCart(product)" v-if="canAddToCart(product)">
@@ -62,6 +63,7 @@
                             </figure>
                             <h2 v-text="product.title"></h2>
                             <p v-html="product.description"></p>
+                            <p>Location: {{product.Location}}</p>
                             <p>Price: {{product.price}} </p>
                             <p>Available Inventory {{product.availableInventory - cartCount(product.id)}}</p>
                             <button v-on:click = "addToCart(product)" v-if="canAddToCart(product)">
@@ -78,6 +80,21 @@
                     </div>
                     <div v-else>
                         <h2>Checkout</h2>
+                        <div style="display: flex;">
+                        <div v-for="product in cartProducts" style="width: 15%; padding: 2%; background-color: aliceblue; border-radius: 2%; margin: 2%;">
+                            <figure>
+                                <img v-bind:src = "product.image" height="100px" width="100px">
+                            </figure>
+                            <h2 v-text="product.title"></h2>
+                            <p v-html="product.description"></p>
+                            <p>Location: {{product.location}}</p>
+                            <p>Quantity: {{cartCount(product.id)}}</p>
+                            <p>Total Price: {{product.price}} </p>
+                            <button v-on:click = "removeCart(product.id)">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
                     </div>
                 </main>
             </div>
@@ -118,14 +135,24 @@
                             }
                         }
                         return count;
+                },
+                findingProduct(id) {
+                    for(let i = 0; i< this.products.length; i++){
+                        if(this.products[i].id == id){
+                            return products[i];
+                        }
+                    }
+                },
+                removeCart(id) {
+                    function  removing(product){
+                        return product !== id;
+                    }
+                    this.cart = this.cart.filter(removing)
                 }
             },
         computed: {
             cartItemCount: function() {
                 return this.cart.length || '';
-            },
-            itemsLeft() {
-                return this.product.availableInventory - this.cartItemCount;
             },
             sortedProducts() {
                     // the comparison function that defines the order
@@ -143,7 +170,12 @@
                 }
                 return this.products.filter(search);
             },
-
+            cartProducts() {
+                const allProducts = (product) => {
+                   return this.cart.includes(product.id);
+                }
+                return this.products.filter(allProducts);
+            }
         },
     });
 </script>
