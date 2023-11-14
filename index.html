@@ -43,7 +43,26 @@
             <div class='right' style="padding: 2%;">
                 <main>
                     <div v-if="ordered">
-                        
+                        <div style="width: 95%; height: fit-content; padding: 2%; background-color: antiquewhite; border-radius: 4%; margin-top: 2%;">
+                            <h1 style="text-align: center;">Order Information</h1>
+                            <p>
+                                <strong>First Name: </strong>
+                                <p> {{order.firstName}}</p>
+                            </p>
+                            <p>
+                                <strong>Last Name: </strong>
+                                <p> {{order.lastName}}</p>
+                            </p>
+                            <p>
+                                <strong>Number: </strong>
+                                <p> {{order.number}}</p>
+                            </p>
+                            <h1 style="text-align: center;">Your order has been confirmed</h1>
+                            <div style="text-align: center;">
+                                <button style="background-color: rgb(2, 117, 216); border-radius: 20%; cursor: pointer; color: white; font-size: large; padding: 2%;" v-on:click="backToStarting"
+                                >Go Back</button>
+                            </div>
+                        </div>
                     </div>
                     <div v-else>
                         <div v-if="showProduct" style="width: 100%; margin: 2%; display: flex; flex-wrap: wrap;">
@@ -90,7 +109,7 @@
                         <div v-else>
                             <div style="padding: 2%;">
                                 <h1 style="text-align: center;">Cart</h1>
-                                <div style="display: flex;">
+                                <div style="display: flex; flex-wrap: wrap;">
                                     <div v-for="product in cartProducts" style="width: 17%; padding: 2%; background-color: aliceblue; border-radius: 2%; margin: 2%;">
                                         <figure>
                                             <img v-bind:src = "product.image" height="100px" width="100px">
@@ -218,7 +237,15 @@
                     this.cart = this.cart.filter(removing)
                 },
                 checkout(){
-                    alert('Checkout');
+                    this.ordered = true;
+                },
+                backToStarting() {
+                    this.cart.splice(0, this.cart.length);
+                    this.order.firstName = '';
+                    this.order.lastName = '';
+                    this.order.number = '';
+                    this.ordered = false;
+                    this.showProduct = true;
                 }
             },
         computed: {
@@ -227,6 +254,7 @@
             },
             sortedProducts() {
                     // the comparison function that defines the order
+                    sortCart = this.cart;
                     function compareTitle(a, b) {
                                 if (a.title > b.title) return 1;
                                 if (a.title < b.title) return -1;
@@ -242,9 +270,19 @@
                                 if (a.price < b.price) return -1;
                                 return 0;
                             }
+                    function cartCount(id) {
+                        let count = 0;
+                        for(let i = 0; i < sortCart.length; i++) {
+                            if (sortCart[i] === id) {
+                            count++;
+                            }
+                        }
+                        return count;
+                    }
                     function compareAvailability(a, b) {
-                                if (a.availableInventory > b.availableInventory) return 1;
-                                if (a.availableInventory < b.availableInventory) return -1;
+                        console.log(a.availableInventory - cartCount(a.id));
+                                if (a.availableInventory - cartCount(a.id) > b.availableInventory - cartCount(b.id)) return 1;
+                                if (a.availableInventory - cartCount(a.id) < b.availableInventory - cartCount(b.id)) return -1;
                                 return 0;
                             }
                     switch(true){
@@ -266,10 +304,10 @@
                         case this.sort === 'Price' && this.sortOrder === 'Descending':
                             return this.products.sort(comparePrice).reverse();
                             break;
-                        case this.sort === 'Availablity' && this.sortOrder === 'Ascending':
+                        case this.sort === 'Availability' && this.sortOrder === 'Ascending':
                             return this.products.sort(compareAvailability);
                             break;
-                        case this.sort === 'Availablity' && this.sortOrder === 'Descending':
+                        case this.sort === 'Availability' && this.sortOrder === 'Descending':
                             return this.products.sort(compareAvailability).reverse();
                             break;
                         default: 
