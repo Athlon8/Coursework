@@ -5,7 +5,7 @@ let products = [
         description: "Get better at Art & Craft with this course",
         Location: 'Karama',
         price: 2000, 
-        image: "images/art&craft.jpg",
+        image: "Images/art&craft.jpg",
         availableInventory: 10,
         rating: 3
     }, 
@@ -15,7 +15,7 @@ let products = [
         description: "Become a pofessional basketball player",
         Location: 'Bursha',
         price: 4000, 
-        image: "images/basketball.jpg",
+        image: "Images/basketball.jpg",
         availableInventory: 10,
         rating: 3
     },
@@ -25,7 +25,7 @@ let products = [
         description: "Become a pofessional boxer",
         Location: 'Nahda',
         price: 6000, 
-        image: "images/boxer.jpg",
+        image: "Images/boxer.jpg",
         availableInventory: 10,
         rating: 4
     },
@@ -35,7 +35,7 @@ let products = [
         description: "Become a pofessional cricket player",
         Location: 'Nahda',
         price: 5000, 
-        image: "images/cricket.jpg",
+        image: "Images/cricket.jpg",
         availableInventory: 10,
         rating: 10
     },
@@ -45,7 +45,7 @@ let products = [
         description: "Get valuable cybersecurity skills essential for job market",
         Location: 'Bursha',
         price: 4000, 
-        image: "images/cybersecurity.jpg",
+        image: "Images/cybersecurity.jpg",
         availableInventory: 10,
         rating: 2
     },
@@ -55,7 +55,7 @@ let products = [
         description: "Become a pofessional football player",
         Location: 'Karama',
         price: 2000, 
-        image: "images/football.jpg",
+        image: "Images/football.jpg",
         availableInventory: 10,
         rating: 4
     },
@@ -65,7 +65,7 @@ let products = [
         description: "Learn everything about karate",
         Location: 'DIC',
         price: 8000, 
-        image: "images/karate.jpg",
+        image: "Images/karate.jpg",
         availableInventory: 10,
         rating: 4
     },
@@ -75,7 +75,7 @@ let products = [
         description: "Learn everything about programming",
         Location: 'DIC',
         price: 1000, 
-        image: "images/programming.jpg",
+        image: "Images/programming.jpg",
         availableInventory: 10,
         rating: 3
     },
@@ -85,7 +85,7 @@ let products = [
         description: "Become a pofessional swimmer",
         Location: 'Bursha',
         price: 5000, 
-        image: "images/swimming.jpg",
+        image: "Images/swimming.jpg",
         availableInventory: 10,
         rating: 2
     },
@@ -95,7 +95,7 @@ let products = [
         description: "Become a pofessional table tennis player",
         Location: 'Nahda',
         price: 8000, 
-        image: "images/tableTennis.jpg",
+        image: "Images/tableTennis.jpg",
         availableInventory: 10,
         rating: 2
     }
