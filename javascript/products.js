@@ -6,7 +6,7 @@ let products = [
         Location: 'Karama',
         price: 2000, 
         image: "Images/art&craft.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 3
     }, 
     {
@@ -16,7 +16,7 @@ let products = [
         Location: 'Bursha',
         price: 4000, 
         image: "Images/basketball.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 3
     },
     {
@@ -26,7 +26,7 @@ let products = [
         Location: 'Nahda',
         price: 6000, 
         image: "Images/boxer.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 4
     },
     {
@@ -36,8 +36,8 @@ let products = [
         Location: 'Nahda',
         price: 5000, 
         image: "Images/cricket.jpg",
-        availableInventory: 10,
-        rating: 10
+        availableInventory: 5,
+        rating: 5
     },
     {
         id: 1005, 
@@ -46,7 +46,7 @@ let products = [
         Location: 'Bursha',
         price: 4000, 
         image: "Images/cybersecurity.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 2
     },
     {
@@ -56,7 +56,7 @@ let products = [
         Location: 'Karama',
         price: 2000, 
         image: "Images/football.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 4
     },
     {
@@ -66,7 +66,7 @@ let products = [
         Location: 'DIC',
         price: 8000, 
         image: "Images/karate.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 4
     },
     {
@@ -76,7 +76,7 @@ let products = [
         Location: 'DIC',
         price: 1000, 
         image: "Images/programming.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 3
     },
     {
@@ -86,7 +86,7 @@ let products = [
         Location: 'Bursha',
         price: 5000, 
         image: "Images/swimming.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 2
     },
     {
@@ -96,7 +96,7 @@ let products = [
         Location: 'Nahda',
         price: 8000, 
         image: "Images/tableTennis.jpg",
-        availableInventory: 10,
+        availableInventory: 5,
         rating: 2
     }
 ]

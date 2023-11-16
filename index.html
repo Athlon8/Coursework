@@ -6,6 +6,7 @@
     <title>Ahsul Courses</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/stylesheet.css">
     <script src="javascript/products.js"></script>
 </head>
 <body>
@@ -82,8 +83,10 @@
                                     Add to cart
                                 </button>
                                 <span v-if="product.availableInventory === cartCount(product.id)">All out!</span>
-                                    <span v-else-if="product.availableInventory - cartCount(product.id) < 10">Only {{product.availableInventory - cartCount(product.id)}} left!</span>
-                                    <span v-else>Buy now!</span>
+                                <span v-else-if="product.availableInventory - cartCount(product.id) < 5">Only {{product.availableInventory - cartCount(product.id)}} left!</span>
+                                <span v-else>Buy now!</span>
+                                <span v-for="n in product.rating">★</span>
+                                <span v-for="n in 5-product.rating">☆</span>
                             </div>
                             <div v-if="search!=''" v-for="product in searchedProducts" style="width: 15%; padding: 2%; background-color: aliceblue; border-radius: 2%; margin: 2%;">
                                 <figure>
@@ -101,8 +104,10 @@
                                     Add to cart
                                 </button>
                                 <span v-if="product.availableInventory === cartCount(product.id)">All out!</span>
-                                    <span v-else-if="product.availableInventory - cartCount(product.id) < 10">Only {{product.availableInventory - cartCount(product.id)}} left!</span>
-                                    <span v-else>Buy now!</span>
+                                <span v-else-if="product.availableInventory - cartCount(product.id) < 5">Only {{product.availableInventory - cartCount(product.id)}} left!</span>
+                                <span v-else>Buy now!</span>
+                                <span v-for="n in product.rating">★</span>
+                                <span v-for="n in 5-product.rating">☆</span>
                             </div>
                             
                         </div>
@@ -129,6 +134,8 @@
                                                 Remove All
                                             </button>
                                         </span>
+                                        <span v-for="n in product.rating">★</span>
+                                        <span v-for="n in 5-product.rating">☆</span>
                                     </div>
                                 </div>
                                 <div style="width: 95%; height: fit-content; padding: 2%; background-color: antiquewhite; border-radius: 4%; margin-top: 2%;">
@@ -335,35 +342,4 @@
         },
     });
 </script>
-<style>
-    html, body {
-        height: 100%;
-        margin: 0%;
-    }
-
-    .navigation{
-        height: 5%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        background-color: rgb(54, 69, 79);
-    }
-    .content{
-        height: 100%;
-        width: 100%;
-        display: flex;
-    }
-    .left{
-        height: 100%;
-        width: 15%;
-        background-color: rgb(229, 228, 226);
-        overflow: auto;
-    }
-    .right{
-        height: 100%;
-        width: 85%;
-        background-color: rgb(211, 211, 211);
-        overflow: auto;
-    }
-   </style>
 </html>
