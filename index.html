@@ -160,15 +160,15 @@
                                     <h1 style="text-align: center;">Order Information</h1>
                                     <p>
                                         <strong>First Name: </strong>
-                                        <input v-model="order.firstName">
+                                        <input v-model="order.firstName" type="text">
                                     </p>
                                     <p>
                                         <strong>Last Name: </strong>
-                                        <input v-model="order.lastName">
+                                        <input v-model="order.lastName" type="text">
                                     </p>
                                     <p>
                                         <strong>Number: </strong>
-                                        <input v-model="order.number">
+                                        <input v-model="order.number" type="number">
                                     </p>
                                     <div style="text-align: center;">
                                         <button style="background-color: rgb(2, 117, 216); border-radius: 20%; cursor: pointer; color: white; font-size: large; padding: 2%;" v-on:click="checkout"
